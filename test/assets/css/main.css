@@ -1,0 +1,387 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #4d0000, #1a0000);
+  font-family: 'Arial', sans-serif;
+  color: white;
+  text-align: center;
+}
+
+.container {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.logo {
+  height: 50px;
+}
+
+.button-group a {
+  padding: 10px 15px;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 14px;
+  margin-left: 5px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.4);
+}
+
+.btn-orange {
+  background: linear-gradient(to bottom, #ff9933, #ff6600);
+}
+
+.btn-green {
+  background: linear-gradient(to bottom, #00cc66, #009933);
+}
+
+.btn-big-red {
+  display: inline-block;
+  background: linear-gradient(to bottom, #ff4444, #cc0000);
+  padding: 12px 20px;
+  font-weight: bold;
+  font-size: 18px;
+  color: white;
+  border-radius: 8px;
+  margin-top: 10px;
+  box-shadow: 0 0 15px #ff4444;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-big-red:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px #ff4444;
+}
+
+.online-section {
+  margin-bottom: 10px;
+}
+
+.online-box {
+  background: black;
+  padding: 8px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px #ffcc00;
+  color: white;
+}
+
+.dot-green {
+  height: 12px;
+  width: 12px;
+  background-color: #00ff00;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.jackpot-section {
+  background: #111;
+  border: 2px solid gold;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0 0 10px gold;
+}
+
+.jackpot-section h2 {
+  color: gold;
+  text-shadow: 0 0 5px gold;
+}
+
+.jackpot-amount {
+  font-size: 32px;
+  color: #00ffc3;
+  text-shadow: 0 0 10px #00ffc3;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.time-update {
+  font-size: 12px;
+  color: #ccc;
+}
+
+/* ===== Transaction List Header ===== */
+.transaction-list h3 {
+  background: linear-gradient(to right, #ff0055, #ff3333);
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  margin: 0 0 12px 0;
+  color: white;
+  text-shadow: 0 0 6px #ff8888;
+}
+
+/* ===== Transaction Item Container ===== */
+#transaction-container > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: 1px solid #aa0000;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+  background-color: #333;
+  color: white;
+  animation: fadeInUp 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+/* Glow Effect for New Item */
+#transaction-container > div.new-transaction {
+  box-shadow: 0 0 20px rgba(255, 50, 50, 0.9);
+}
+
+/* ===== Left Side (Name, Date, REF) ===== */
+.transaction-left {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.transaction-left strong {
+  font-size: 16px;
+  color: #ffe066;
+  text-shadow: 0 0 3px #ffd700;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.transaction-left .ref {
+  color: #999;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+/* ===== Right Side (Amount + Status) ===== */
+.transaction-right {
+  text-align: right;
+  min-width: 100px;
+}
+
+.transaction-right .amount {
+  font-size: 20px;
+  color: #00ffc3;
+  font-weight: bold;
+  text-shadow: 0 0 4px #00ffc3;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.transaction-right .status {
+  font-weight: bold;
+  font-size: 14px;
+  text-shadow: 0 0 4px #00ffc3;
+}
+
+/* ===== Completed = Green Box ===== */
+.transaction-completed {
+  background-color: #112c1e;
+  border: 1px solid #00cc66;
+  box-shadow: 0 0 10px #00cc66;
+  color: #b8f5cf;
+}
+
+/* ===== Pending = Red Box ===== */
+.transaction-pending {
+  background-color: #552222;
+  border: 1px solid #ff4444;
+  box-shadow: 0 0 8px #ff4444;
+  color: #ffd1d1;
+}
+
+/* Status สีเฉพาะ */
+.transaction-completed .status {
+  color: #00f0ff;
+}
+
+.transaction-pending .status {
+  color: #ffaaaa;
+}
+
+/* ===== Animation for New Item ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#transaction-container > div.new-transaction {
+  animation: fadeInUp 0.4s ease;
+}
+
+.countdown-section {
+  background: #ff3333;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  box-shadow: 0 0 8px #ff3333;
+}
+
+.review-section h3 {
+  background: linear-gradient(to right, #2200cc, #5500ff);
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 10px #5500ff;
+}
+
+#review-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#review-list li {
+  background: #110066;
+  color: white;
+  padding: 10px;
+  margin-bottom: 6px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+}
+
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.review-content {
+  text-align: left;
+  font-size: 14px;
+}
+
+.review-stars {
+  color: gold;
+}
+
+.casino-grid-section h3,
+.most-online-section h3 {
+  color: yellow;
+  margin-bottom: 8px;
+}
+
+.casino-grid img,
+.game-item img {
+  width: 100%;
+  border-radius: 6px;
+  box-shadow: 0 0 8px gold;
+  margin-bottom: 8px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.casino-grid img:hover,
+.game-item img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px gold;
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.game-item {
+  background: #222;
+  border-radius: 6px;
+  padding: 8px;
+  box-shadow: 0 0 6px #ffcc00;
+  text-align: center;
+}
+
+.game-item .online-number {
+  color: #0015ff;
+  font-weight: bold;
+  text-shadow: 0 0 5px #00ff00;
+}
+
+.game-item p {
+  color: #00ff00;
+  font-weight: bold;
+}
+
+.promo-banner-section img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Countdown Blink Animation */
+@keyframes blinker {
+  50% { opacity: 0; }
+}
+
+.game-item {
+  background-color: #1e1e1e;
+  border: 2px solid #ffcc00;
+  border-radius: 8px;
+  padding: 6px;
+  margin-bottom: 10px;
+}
+
+.game-item img {
+  width: 100%;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+
+.game-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 6px;
+}
+
+.game-info .game-label {
+  color: white;
+  font-size: 13px;
+  font-weight: normal;
+}
+
+.game-info .game-number {
+  color: #00ff00;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* ===== Fade In / Fade Out Animation for Reviews ===== */
+@keyframes slideInFromBottom {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideOutToTop {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-20px); }
+}
+
+#review-list li.slide-in {
+  animation: slideInFromBottom 0.4s ease-out;
+}
+
+#review-list li.slide-out {
+  animation: slideOutToTop 0.4s ease-in forwards;
+}
